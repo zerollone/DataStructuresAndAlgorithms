@@ -2,6 +2,9 @@ package com.java.sort;
 
 import java.util.Arrays;
 
+/**
+ * 选择排序算法
+ */
 public class SelectSort {
 
     public static void main(String[] args) {
@@ -13,12 +16,12 @@ public class SelectSort {
         int num = 80000;
         int[] arrs = new int[num];
         for (int i = 0; i < arrs.length; i++){
-            arrs[i] = (int) (Math.random() * num);
+            arrs[i] = (int) (Math.random() * num * 100);
         }
         long start = System.currentTimeMillis();
         selectSort(arrs);
         long end = System.currentTimeMillis();
-        System.out.println(num + "个数的冒泡算法排序时间：" + (end - start) + " ms");
+        System.out.println(num + "个数的选择排序算法时间：" + (end - start) + " ms");
     }
 
     public static void selectSort(int[] arr) {
