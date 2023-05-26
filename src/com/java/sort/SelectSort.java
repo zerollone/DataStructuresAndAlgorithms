@@ -15,7 +15,7 @@ public class SelectSort {
         System.out.println("---------测试选择排序算法运行时间--------");
         int num = 80000;
         int[] arrs = new int[num];
-        for (int i = 0; i < arrs.length; i++){
+        for (int i = 0; i < arrs.length; i++) {
             arrs[i] = (int) (Math.random() * num * 100);
         }
         long start = System.currentTimeMillis();
