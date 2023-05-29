@@ -1,4 +1,4 @@
-package search;
+package com.java.search;
 
 /**
  * 线性查找，暴力穷举
