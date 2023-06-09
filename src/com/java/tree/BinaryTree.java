@@ -18,7 +18,7 @@ public class BinaryTree {
         root.setLeft(node2);
         root.setRight(node3);
         node3.setRight(node4);
-        node3.setLeft(node5 );
+        node3.setLeft(node5);
         binaryTrees.setRoot(root);
 
         // 测试前序遍历
@@ -58,47 +58,47 @@ public class BinaryTree {
 /**
  * 定义二叉树
  */
-class BinaryTrees{
+class BinaryTrees {
     private HeroNode root;
 
-    public void setRoot(HeroNode root){
+    public void setRoot(HeroNode root) {
         this.root = root;
     }
 
     // 前序遍历
-    public void preOrder(){
-        if (this.root != null){
+    public void preOrder() {
+        if (this.root != null) {
             this.root.preOrder();
-        }else {
+        } else {
             System.out.println("当前二叉树为空！");
         }
     }
 
     // 中序遍历
-    public void infixOrder(){
-        if (this.root != null){
+    public void infixOrder() {
+        if (this.root != null) {
             this.root.infixOrder();
-        }else {
+        } else {
             System.out.println("当前二叉树为空！");
         }
     }
 
     // 后序遍历
-    public void postOrder(){
-        if (this.root != null){
+    public void postOrder() {
+        if (this.root != null) {
             this.root.postOrder();
-        }else {
+        } else {
             System.out.println("当前二叉树为空！");
         }
     }
 
     // 前序遍历查找
-    public void preOrderSearch(int no){
-        if (root != null){
+    public void preOrderSearch(int no) {
+        if (root != null) {
             HeroNode res = this.root.preOrderSearch(no);
-            if (res != null){
+            if (res != null) {
                 System.out.println("前序遍历查找已找到，节点信息：" + res);
-            }else {
+            } else {
                 System.out.println("未找到该节点！！！");
             }
         } else {
@@ -107,12 +107,12 @@ class BinaryTrees{
     }
 
     // 中序遍历查找
-    public void infixOrderSearch(int no){
-        if (root != null){
+    public void infixOrderSearch(int no) {
+        if (root != null) {
             HeroNode res = this.root.infixOrderSearch(no);
-            if (res != null){
+            if (res != null) {
                 System.out.println("中序遍历查找已找到，节点信息：" + res);
-            }else {
+            } else {
                 System.out.println("未找到该节点！！！");
             }
         } else {
@@ -121,12 +121,12 @@ class BinaryTrees{
     }
 
     // 后序遍历查找
-    public void postOrderSearch(int no){
-        if (root != null){
+    public void postOrderSearch(int no) {
+        if (root != null) {
             HeroNode res = this.root.postOrderSearch(no);
-            if (res != null){
+            if (res != null) {
                 System.out.println("后序遍历查找已找到，节点信息：" + res);
-            }else {
+            } else {
                 System.out.println("未找到该节点！！！");
             }
         } else {
@@ -135,11 +135,11 @@ class BinaryTrees{
     }
 
     // 删除节点
-    public void delNode(int no){
-        if (root != null){
-            if (root.getNo() == no){
+    public void delNode(int no) {
+        if (root != null) {
+            if (root.getNo() == no) {
                 root = null;
-            }else {
+            } else {
                 root.delNode(no);
             }
         } else {
@@ -151,12 +151,13 @@ class BinaryTrees{
 /**
  * 创建 HeroNode 结点
  */
-class HeroNode{
+class HeroNode {
     private int no;
     private String name;
     private HeroNode left;
     private HeroNode right;
-    public HeroNode(int no, String name){
+
+    public HeroNode(int no, String name) {
         this.no = no;
         this.name = name;
     }
@@ -204,15 +205,15 @@ class HeroNode{
     /**
      * 前序遍历
      */
-    public void preOrder(){
+    public void preOrder() {
         // 先输出父节点
         System.out.println(this);
         // 递归左子树前序遍历
-        if (this.left != null){
+        if (this.left != null) {
             this.left.preOrder();
         }
         // 递归右子树前序遍历
-        if (this.right != null){
+        if (this.right != null) {
             this.right.preOrder();
         }
     }
@@ -220,15 +221,15 @@ class HeroNode{
     /**
      * 中序遍历
      */
-    public void infixOrder(){
+    public void infixOrder() {
         // 递归左子树前序遍历
-        if (this.left != null){
+        if (this.left != null) {
             this.left.infixOrder();
         }
         // 输出父节点
         System.out.println(this);
         // 递归右子树前序遍历
-        if (this.right != null){
+        if (this.right != null) {
             this.right.infixOrder();
         }
     }
@@ -236,13 +237,13 @@ class HeroNode{
     /**
      * 后序遍历
      */
-    public void postOrder(){
+    public void postOrder() {
         // 递归左子树前序遍历
-        if (this.left != null){
+        if (this.left != null) {
             this.left.postOrder();
         }
         // 递归右子树前序遍历
-        if (this.right != null){
+        if (this.right != null) {
             this.right.postOrder();
         }
         // 输出父节点
@@ -252,22 +253,22 @@ class HeroNode{
     /**
      * 前序遍历查找
      */
-    public HeroNode preOrderSearch(int no){
+    public HeroNode preOrderSearch(int no) {
         // 比较当前节点是否是查询的节点
-        if (this.no == no){
+        if (this.no == no) {
             return this;
         }
         HeroNode heroNode = null; // 定义一个空节点，判断是否查找到
         // 如果当前节点不是，则判断其左子节点是否为空，不为空则递归前序查找
-        if (this.left != null){
+        if (this.left != null) {
             heroNode = this.left.preOrderSearch(no);
         }
         // 左子树已经找到
-        if (heroNode != null){
+        if (heroNode != null) {
             return heroNode;
         }
         // 如果左子节点没有找到，则判断右子节点是否为空，不为空则递归前序查找
-        if (this.right != null){
+        if (this.right != null) {
             heroNode = this.right.preOrderSearch(no);
         }
         return heroNode;
@@ -276,22 +277,22 @@ class HeroNode{
     /**
      * 中序遍历
      */
-    public HeroNode infixOrderSearch(int no){
+    public HeroNode infixOrderSearch(int no) {
         HeroNode heroNode = null; // 定义一个空节点，判断是否查找到
         // 判断左子节点是否为空，不为空则递归前序查找
-        if (this.left != null){
+        if (this.left != null) {
             heroNode = this.left.infixOrderSearch(no);
         }
         // 左子树已经找到
-        if (heroNode != null){
+        if (heroNode != null) {
             return heroNode;
         }
         // 比较当前节点是否是查询的节点
-        if (this.no == no){
+        if (this.no == no) {
             return this;
         }
         // 如果左子节点没有找到，则判断右子节点是否为空，不为空则递归前序查找
-        if (this.right != null){
+        if (this.right != null) {
             heroNode = this.right.infixOrderSearch(no);
         }
         return heroNode;
@@ -300,26 +301,26 @@ class HeroNode{
     /**
      * 后序遍历
      */
-    public HeroNode postOrderSearch(int no){
+    public HeroNode postOrderSearch(int no) {
         HeroNode heroNode = null; // 定义一个空节点，判断是否查找到
         // 判断左子节点是否为空，不为空则递归前序查找
-        if (this.left != null){
+        if (this.left != null) {
             heroNode = this.left.infixOrderSearch(no);
         }
         // 左子树已经找到
-        if (heroNode != null){
+        if (heroNode != null) {
             return heroNode;
         }
         // 如果左子节点没有找到，则判断右子节点是否为空，不为空则递归前序查找
-        if (this.right != null){
+        if (this.right != null) {
             heroNode = this.right.infixOrderSearch(no);
         }
         // 右子树已经找到
-        if (heroNode != null){
+        if (heroNode != null) {
             return heroNode;
         }
         // 比较当前节点是否是查询的节点
-        if (this.no == no){
+        if (this.no == no) {
             return this;
         }
         return heroNode;
@@ -327,27 +328,27 @@ class HeroNode{
 
     /**
      * 递归删除节点
-     *      如果删除的节点是叶子节点，则删除该节点
-     *      如果删除的节点是非叶子节点，则删除该子树
+     * 如果删除的节点是叶子节点，则删除该节点
+     * 如果删除的节点是非叶子节点，则删除该子树
      */
-    public void delNode(int no){
+    public void delNode(int no) {
         // 如果当前节点的左子节点不为空，并且左子节点就是需要删除的节点，则将 this.left = null，并且返回
-        if (this.left != null && this.left.no == no){
+        if (this.left != null && this.left.no == no) {
             this.left = null;
             return;
         }
         // 如果当前节点的右子节点不为空，并且右子节点就是需要删除的节点，则将 this.right = null，并且返回
-        if (this.right != null && this.right.no == no){
+        if (this.right != null && this.right.no == no) {
             this.right = null;
             return;
         }
 
         // 向左子树进行递归删除
-        if (this.left != null){
+        if (this.left != null) {
             this.left.delNode(no);
         }
         // 向右子树进行递归删除
-        if (this.right != null){
+        if (this.right != null) {
             this.right.delNode(no);
         }
 
