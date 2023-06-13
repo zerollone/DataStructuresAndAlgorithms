@@ -2,6 +2,9 @@ package com.java.sort;
 
 import java.util.Arrays;
 
+/**
+ * 堆排序
+ */
 public class HeapSort {
     public static void main(String[] args) {
         int[] arr = {4, 6, 8, 5, 9, -1, 56, 40, 111, 1};
