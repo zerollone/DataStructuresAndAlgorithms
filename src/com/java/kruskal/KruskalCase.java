@@ -22,10 +22,7 @@ public class KruskalCase {
         };
         KruskalCase kruskalCase = new KruskalCase(vertex, matrix);
         kruskalCase.printf();
-        EData[] edges = kruskalCase.getEdges();
-        System.out.println(Arrays.toString(edges));
-        kruskalCase.sortEdge(edges);
-        System.out.println(Arrays.toString(edges));
+        kruskalCase.kruskal();
     }
 
     // 构造器
@@ -53,6 +50,42 @@ public class KruskalCase {
                     edgeNum++;
                 }
             }
+        }
+    }
+
+    // 编写算法
+    public void kruskal(){
+        int index = 0;
+        // 用于保存 已有最小生成树 中的每个顶点在最小生成树中的终点
+        int[] ends = new int[edgeNum];
+        // 创建结果数组，保存最后的最小生成树
+        EData[] result = new EData[vertex.length-1];
+        // 获取图中所有边的集合
+        EData[] edges = getEdges();
+        // 按照边的权值大小进行排序
+        sortEdge(edges);
+        // 遍历 edges 数组，将边添加到最小生成树中时，判断准备加入的边是否与已有的边形成回路
+        for (int i = 0; i < edgeNum; i++){
+            // 获取第 i 条边的第一个顶点
+            int p1 = getPosition(edges[i].start);
+            // 获取第 i 条边的第二个顶点
+            int p2 = getPosition(edges[i].end);
+            // 获取 p1 顶点在已有的最小生成树中的终点
+            int m = getEnd(ends, p1);
+            // 获取 p1 顶点在已有的最小生成树中的终点
+            int n = getEnd(ends, p2);
+            // 判断是否构成回路，等于则为回路
+            if (m != n){
+                // 不构成回路
+                // 设置 m 的终点是 n
+                ends[m] = n;
+                // 将第 i 条边加入到result数组中
+                result[index++] = edges[i];
+            }
+        }
+        System.out.println("====== 最小生成树 =======");
+        for (EData eData : result){
+            System.out.println(eData);
         }
     }
 
